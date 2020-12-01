@@ -4,17 +4,22 @@ if (process.env.NODE_ENV === "development") {
   require("../index.html");
 }
 
+const POINTS = 2000; // Set number of poinst
+const TURBO = true; // Toggle the turbo mode on or off
+const data = [];
+
 // Prepare the data
-var data = [],
-  n = 50,
-  turboThreshold = 0,
-  i;
-for (i = 0; i < n; i += 1) {
-  data.push({
-    x: Math.pow(Math.random(), 2) * 100,
-    y: Math.pow(Math.random(), 2) * 100,
-    name: `point ${i}`,
-  });
+for (let i = 0; i < POINTS; i += 1) {
+  TURBO
+    ? data.push([
+        Math.pow(Math.random(), 2) * 100,
+        Math.pow(Math.random(), 2) * 100,
+      ])
+    : data.push({
+        x: Math.pow(Math.random(), 2) * 100,
+        y: Math.pow(Math.random(), 2) * 100,
+        name: `point ${i}`,
+      });
 }
 
 if (!Highcharts.Series.prototype.renderCanvas) {
@@ -75,7 +80,7 @@ Highcharts.chart("container", {
         enabled: true,
         format: "{point.name}",
       },
-      turboThreshold,
+      turboThreshold: TURBO ? 1 : 0,
     },
 
     scatter: {
@@ -88,5 +93,7 @@ Highcharts.chart("container", {
   },
 });
 console.log("------------------------------");
-console.log(n + " points");
+console.log(`Turbo: ${TURBO ? "on" : "off"}`);
+console.log(`${POINTS} points`);
 console.timeEnd("scatter");
+console.log("------------------------------");
