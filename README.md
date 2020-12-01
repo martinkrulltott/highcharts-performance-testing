@@ -33,3 +33,6 @@ Boost: off
 scatter: 3140.81396484375 ms
 ------------------------------
 ```
+
+### Example
+![Scatter chart](https://raw.githubusercontent.com/martinkrulltott/highcharts-performance-testing/main/images/example.png)
