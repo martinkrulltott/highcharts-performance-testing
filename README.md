@@ -18,6 +18,8 @@ npm start
 - `POINTS` sets the number of points to generate
 - `TURBO` toggles the turbo mode on/off
 
+- The `boost module` can be toggled with the following line in `src/index.html`: `<script src="https://code.highcharts.com/modules/boost.js"></script>`
+
 ### Viewing the results
 - Run the dev server and open the console
 - The results will be shown in the console, where ´scatter´ represents the timer
